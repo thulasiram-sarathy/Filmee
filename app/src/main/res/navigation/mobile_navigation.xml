@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.thul.filmee.view.fragment.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_popular">
+
+        <action
+            android:id="@+id/popularToDetails"
+            app:destination="@+id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/navigation_popular" />
+    </fragment>
+    <!--    <fragment
+                android:id="@+id/navigation_top"
+                android:name="com.thul.androidepoxyrecyclerview.view.fragment.top.TopMovieFragment"
+                android:label="@string/title_top_rated"
+                tools:layout="@layout/fragment_top_rated">
+
+            <action android:id="@+id/action_navigation_top_rated_to_movieDetailsFragment"
+                    app:destination="@id/movieDetailsFragment"/>
+            <action android:id="@+id/topRatedToDetails"
+                    app:destination="@id/movieDetailsFragment" app:popUpTo="@+id/navigation_top_rated"
+                    app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
+                    app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        </fragment>-->
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.thul.filmee.view.fragment.detail.DetailFragment"
+        android:label="Details"
+        tools:layout="@layout/content_main">
+
+        <argument
+            android:name="movieArg"
+            app:argType="com.thul.filmee.response.MovieApiResponse" />
+
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_reviewsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/movieDetailsFragment" />
+    </fragment>
+
+    <!-- <fragment
+             android:id="@+id/navigation_favorites"
+             android:name="com.example.moviz.ui.notifications.NotificationsFragment"
+             android:label="@string/title_favourites"
+             tools:layout="@layout/fragment_notifications"/>
+
+
+
+
+
+     <fragment android:id="@+id/reviewsFragment" android:name="com.example.moviz.ui.reviews.ReviewsFragment"
+               android:label="Reviews" tools:layout="@layout/fragment_reviews">
+         <argument android:name="movieId" app:argType="integer"/>
+     </fragment>-->
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.thul.filmee.view.fragment.review.ReviewFragment"
+        android:label="Reviews"
+        tools:layout="@layout/fragment_reviews">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

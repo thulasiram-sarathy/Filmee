@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/scroll"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/genresTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_activity_detail">
+
+
+        <ImageView
+            android:id="@+id/movieImageView"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars[0]" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/movieImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieImageView"
+            app:layout_constraintVertical_bias="0.482"
+            app:srcCompat="@drawable/ic_favorite_black_24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movie_detail_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/root_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_xsmall"
+                android:layout_marginBottom="@dimen/margin"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/movie_detail_card"
+
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <com.an.customfontview.CustomTextView
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:paddingTop="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewOverview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/detail_list_item_text"
+                    android:fontFamily="@font/noto_sans_bold"
+                    tools:text="Movie"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.an.customfontview.CustomTextView
+                    android:id="@+id/textViewOverview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="Overview"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView5"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:textFontPath="gt_medium.otf" />
+
+                <com.an.customfontview.CustomTextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Release"
+                    android:padding="3dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/cardview_light_background"
+                    android:background="@color/btn_shine_fill"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewOverview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:textFontPath="gt_medium.otf" />
+
+                <com.an.customfontview.CustomTextView
+                    android:id="@+id/releaseDateView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="TextView"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+                    app:layout_constraintStart_toEndOf="@+id/textView5"
+                    app:textFontPath="gt_medium.otf" />
+
+
+                <View
+                    android:id="@+id/line_above_cast_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginRight="@dimen/padding"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/releaseDateView" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title_cast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="left"
+                    android:text="Cast"
+                    android:paddingTop="10dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/detail_list_item_text"
+                    android:textSize="@dimen/font_small_medium"
+                    app:layout_constraintTop_toBottomOf="@+id/line_above_cast_title" />
+
+
+                <View
+                    android:id="@+id/line_below_cast_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/title_cast" />
+
+
+                <com.airbnb.epoxy.EpoxyRecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:id="@+id/castRecyclerview"
+                    app:layout_constraintTop_toBottomOf="@+id/line_below_cast_title" />
+
+
+                <View
+                    android:id="@+id/line_above_crew_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/castRecyclerview" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title_crew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="@dimen/margin"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="left"
+                    android:text="Crew"
+                    android:textAllCaps="true"
+                    android:textColor="@color/detail_list_item_text"
+                    android:textSize="@dimen/font_small_medium"
+                    app:layout_constraintTop_toBottomOf="@+id/line_above_crew_title" />
+
+
+                <View
+                    android:id="@+id/line_below_crew_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/title_crew" />
+
+                <com.airbnb.epoxy.EpoxyRecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/crewRecyclerview"
+                    android:layout_marginTop="@dimen/margin_large"
+                    app:layout_constraintTop_toBottomOf="@+id/line_below_crew_title"/>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@color/detail_list_item_view"
+                    app:layout_constraintTop_toBottomOf="@+id/crewRecyclerview" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <Button
+            android:id="@+id/buttonReviews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Reviews"
+            android:visibility="invisible"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@+id/buttonImages"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/movie_detail_card" />
+
+        <Button
+            android:id="@+id/buttonTrailer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Videos"
+            android:visibility="invisible"
+            android:textAllCaps="false"
+            app:layout_constraintBaseline_toBaselineOf="@+id/buttonImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonImages" />
+
+        <Button
+            android:id="@+id/buttonImages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Images"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/buttonReviews"
+            app:layout_constraintEnd_toStartOf="@+id/buttonTrailer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonReviews" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/videos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="left"
+            android:text="Videos"
+            android:paddingBottom="10dp"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/buttonTrailer" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:layout_width="0dp"
+            android:id="@+id/videoRecyclerview"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/videos"
+            android:paddingBottom="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/similar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="left"
+            android:text="Similar Movies"
+            android:paddingBottom="10dp"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/videoRecyclerview" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:layout_width="0dp"
+            android:id="@+id/similarRecyclerview"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/similar"/>
+
+        <View
+            android:id="@+id/emptyspace"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@color/cardview_shadow_end_color"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/similarRecyclerview" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/reviews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="left"
+            android:text="Reviews"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/emptyspace" />
+
+        <FrameLayout
+            android:id="@+id/child_fragment_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/reviews">
+
+        </FrameLayout>
+
+        <View
+            android:id="@+id/emptyspaceone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/video_play_image_size"
+            android:background="@color/cardview_shadow_end_color"
+            app:layout_constraintTop_toBottomOf="@+id/child_fragment_container" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

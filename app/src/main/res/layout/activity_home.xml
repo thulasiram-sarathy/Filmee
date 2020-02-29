@@ -31,7 +31,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_width="@dimen/search_icon_size"
                 android:layout_height="@dimen/search_icon_size"
-                android:background="@mipmap/ic_search"
+                android:background="@drawable/ic_search_black_24dp"
                 android:onClick="searchIconClick" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>

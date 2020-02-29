@@ -3,6 +3,7 @@ package com.thul.filmee.view.activity.search
 import android.annotation.SuppressLint
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
@@ -18,6 +19,7 @@ import com.thul.filmee.R
 import com.thul.filmee.response.MovieApiResponse
 import com.thul.filmee.response.SearchResponse
 import com.thul.filmee.utils.setupGridManager
+import com.thul.filmee.view.activity.detail.MovieDetailActivity
 import com.thul.filmee.view.adapter.HomeController
 import com.thul.filmee.view.adapter.MovieClickListener
 import com.thul.filmee.view.adapter.SearchClickListener
@@ -74,7 +76,10 @@ class SearchActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         val searchListController = SearchController(object : SearchClickListener {
             override fun onSearchMovieItemClicked(movie: SearchResponse.MovieApiResponse) {
-
+                val intent = Intent (applicationContext, SearchDetailActivity::class.java).apply {
+                    putExtra("movie", movie)
+                }
+                startActivity(intent)
             }
 
         })

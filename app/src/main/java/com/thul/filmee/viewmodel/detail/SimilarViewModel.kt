@@ -13,7 +13,7 @@ class SimilarViewModel(val id:Int): ViewModel()
 {
 
     var similarLiveData: LiveData<PagedList<MovieApiResponse>>
-    private val pageSize = 25
+    private val pageSize = 15
     private val reviewsFactory: PageKeySimilarMoviesFactory = PageKeySimilarMoviesFactory( id, Executor {
 
     })

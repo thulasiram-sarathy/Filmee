@@ -48,7 +48,7 @@ class PageKeyedSimilarMoviesDataSource (
                         val moviesListingData = parseStringSimilarMovies(moviesResponseString!!)
                         
 
-                        Log.d("MOVIZ-A",response.body().toString())
+                        Log.d("MOVIZ-S",response.body().toString())
                         callback.onResult(moviesListingData.results,null,2)
                         networkState.postValue(NetworkState.LOADED)
                         initial.postValue(NetworkState.LOADED)
@@ -56,7 +56,7 @@ class PageKeyedSimilarMoviesDataSource (
                     }
 
                     else {
-                        Log.d("MOVIZ-A","Error occurred:Code ${response.code()}")
+                        Log.d("MOVIZ-S","Error occurred:Code ${response.code()}")
                     }
 
 
@@ -65,7 +65,7 @@ class PageKeyedSimilarMoviesDataSource (
 
                     networkState.postValue(NetworkState.FAILED)
                     initial.postValue(NetworkState.FAILED)
-                    Log.d("MOVIZ-A","Error:${t.message}")
+                    Log.d("MOVIZ-S","Error:${t.message}")
                 }
 
             })
@@ -93,14 +93,14 @@ class PageKeyedSimilarMoviesDataSource (
                     }
 
                     else {
-                        Log.d("MOVIZ-A","Error failed ${response.code()}")
+                        Log.d("MOVIZ-S","Error failed ${response.code()}")
                     }
 
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     networkState.postValue(NetworkState.FAILED)
-                    Log.d("MOVIZ-A","Error after ${t.message}")
+                    Log.d("MOVIZ-S","Error after ${t.message}")
 
                 }
 

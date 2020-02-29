@@ -1,3 +1,3 @@
-# Android-Epoxy-Recyclerview
+# Filmee
 
-Android Epoxy library for recyclerview which fetches data using rerofit.
+Filmee app has all the mlovie databases.

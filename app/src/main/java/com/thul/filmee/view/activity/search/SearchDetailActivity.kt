@@ -30,6 +30,7 @@ import com.thul.filmee.response.MovieApiResponse
 import com.thul.filmee.response.SearchResponse
 import com.thul.filmee.response.VideoResponse
 import com.thul.filmee.utils.loadTmdbImage
+import com.thul.filmee.view.activity.detail.MovieDetailActivity
 import com.thul.filmee.view.activity.video.VideoActivity
 import com.thul.filmee.view.adapter.*
 import com.thul.filmee.view.fragment.detail.DetailFragmentDirections
@@ -62,6 +63,7 @@ class SearchDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_movie_detail)
 
         val movie = intent.getParcelableExtra("movie") as? SearchResponse.MovieApiResponse
+        Log.v("MovieApiResponse", " "+ movie)
 /*        if(movie is MovieApiResponse){
             Log.v("MovieApiResponse", " "+ "MovieApiResponse")
         }else{
@@ -153,10 +155,11 @@ class SearchDetailActivity : AppCompatActivity() {
             override fun onSimilarMovieItemClicked(video: MovieApiResponse) {
 //                val action =  DetailFragmentDirections.actionMovieDetailsFragmentToReviewsFragment(video)
 //                findNavController().navigate(action)
-                val intent = Intent (applicationContext, SearchDetailActivity::class.java).apply {
+                val intent = Intent (applicationContext, MovieDetailActivity::class.java).apply {
                     putExtra("movie", video)
                 }
                 startActivity(intent)
+                Log.v("MovieItemClicked", " "+ video)
             }
 
         })

@@ -32,7 +32,6 @@ import com.thul.filmee.response.VideoResponse
 import com.thul.filmee.utils.loadTmdbImage
 import com.thul.filmee.view.activity.video.VideoActivity
 import com.thul.filmee.view.adapter.*
-import com.thul.filmee.view.fragment.detail.DetailFragmentDirections
 import com.thul.filmee.view.fragment.review.ReviewFragment
 import com.thul.filmee.viewmodel.detail.CreditViewModel
 import com.thul.filmee.viewmodel.detail.CrewViewModel
